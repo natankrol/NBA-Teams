@@ -1,7 +1,10 @@
 const allBtn = document.querySelector('.all-btn');
 const westBtn = document.querySelector('.west-btn');
 const eastBtn = document.querySelector('.east-btn');
-const listOfTeams = document.querySelector('.teams-list')
+const listOfTeams = document.querySelector('.teams-list');
+const searchInput = document.querySelector('#search');
+const searchBtn = document.querySelector('.search-btn');
+const alertText = document.querySelector('.alert-text');
 
 let teamsList = [
     {
@@ -183,6 +186,20 @@ function displayEastTeams(){
     displayTeams(teamsValues)
 };
 
+function searchTeam(){
+    if (searchInput.value == ""){
+        alertText.classList.add('alert-text-visible');
+        setTimeout(function(){
+            alertText.classList.remove('alert-text-visible')
+        }, 2000);
+    } else {
+    let typedTeam = searchInput.value;
+    const userTypedTeam = teamsList.filter(team => team.name == typedTeam);
+    const teamsValues = Object.values(userTypedTeam);
+    displayTeams(teamsValues);
+    }
+}
+
 
 displayTeams(teamsList)
 
@@ -193,3 +210,4 @@ eastBtn.addEventListener('click', () => displayEastTeams());
 allBtn.addEventListener('click', () => displayTeams(teamsList))
 
 
+searchBtn.addEventListener('click', () => searchTeam());

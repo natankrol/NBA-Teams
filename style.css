@@ -98,5 +98,19 @@ nav {
     width: 3rem;
     padding-left: 15px;
 }
+.alert{
+    display: flex;
+    justify-content: center;
+    height: 0.7rem;
+    margin-top: -0.4rem;
+}
+.alert-text{
+    color: rgb(203, 1, 1);
+    display: none;
+}
+.alert-text-visible{
+    display: block;
+}
+
 
 
